@@ -1,40 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# About CashVault
 
-## Getting Started
+Clearly, CashVault is an application for you to manage your money better and smarter. It's a native application on Scroll.
 
-First, run the development server:
+Personal finance is an important aspect of human lives. Sadly, this is the area many people, particularly the young ones are having problems.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+3 questions for self-check:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* do you clearly know how much you made and spent last month?
+* have you been consistent enough with your investment?
+* how deep do you know about managing your finances?
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+This is why I am building CashVault...
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+This is a personal finance application for you to save, budget and invest. This is the application you need to get smarter and become richer onchain.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+# How it Benefits You
+Wondering how CashVault can really help your finances?
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## On Savings
 
-## Learn More
+* automated savings (e.g. $100 daily saving)
+* incremental saving towards a goal like buying your first home
+* 5% spend-and-save structure
 
-To learn more about Next.js, take a look at the following resources:
+## On Budgeting
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+* setting spending limits on items
+* a pie chart to show where your money has been going
+* a pie chart to show how you have been receiving money
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## On Investing
 
-## Deploy on Vercel
+* weekly DCA into crypto trades (only BTC, ETH, and SOL for start)
+* providing liquidity on protocols and getting rewarded (QuillFinance is top on the list)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Where can you start using CashVault?
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Well, CashVault is still in development and I'm hacking to bring it to life. It's coming soon. Get ready to be on the waitlist.
+While that is going on, follow the story on [Twitter](https://x.com/0xcashvault)
