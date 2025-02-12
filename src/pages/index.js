@@ -2,7 +2,7 @@ import React from "react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styles from '../styles/Home.module.css';
-
+import Link from 'next/link';
 
 const LandingPage = () => {
   return (
@@ -32,8 +32,10 @@ const LandingPage = () => {
 
         <div className={styles.featureSection}>
           <div className={styles.featureBox}>
+            <Link href = "/automatic-saving" className = {styles.featureBox}>
             <h3>Automatic Saving</h3>
             <p>Put your savings on autopilot; set the frequency and your wallet will regularly deposit your savings on CashVault.</p>
+            </Link>
           </div>
 
           <div className={styles.featureBox}>
