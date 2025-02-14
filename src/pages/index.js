@@ -39,7 +39,9 @@ const LandingPage = () => {
           </div>
 
           <div className={styles.featureBox}>
+          <Link href = "/manual-saving">
             <h3>Save Manually</h3>
+          </Link>
             <p>
               You don't like auto-saving? Then save on the go with the CashVault manual saving.
             </p>
