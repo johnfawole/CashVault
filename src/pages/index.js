@@ -32,10 +32,10 @@ const LandingPage = () => {
 
         <div className={styles.featureSection}>
           <div className={styles.featureBox}>
-            <Link href = "/automatic-saving" className = {styles.featureBox}>
+            <Link href = "/automatic-saving">
             <h3>Automatic Saving</h3>
-            <p>Put your savings on autopilot; set the frequency and your wallet will regularly deposit your savings on CashVault.</p>
             </Link>
+            <p>Put your savings on autopilot; set the frequency and your wallet will regularly deposit your savings on CashVault.</p>
           </div>
 
           <div className={styles.featureBox}>
