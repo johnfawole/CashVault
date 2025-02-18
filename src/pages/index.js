@@ -48,7 +48,9 @@ const LandingPage = () => {
           </div>
 
           <div className ={styles.featureBox}>
+            <Link href = "/lockup">
             <h3>Lock-up Funds</h3>
+            </Link>
             <p>
               Sometimes, it's better to just lock funds away if you know you want to be more diciplined with your finances.
             </p>
