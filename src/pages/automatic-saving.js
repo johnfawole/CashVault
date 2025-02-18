@@ -13,6 +13,9 @@ const AutomaticSaving = () => {
 
   return (
     <div className={styles.container}>
+      <header className={styles.header}>
+        <h1>Welcome to CashVault</h1>
+      </header>
       <div className={styles.card}>
         <h2 className={styles.title}>Automatic Saving</h2>
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -54,6 +57,9 @@ const AutomaticSaving = () => {
           </button>
         </form>
       </div>
+      <footer className={styles.footer}>
+        All Rights Reserved
+      </footer>
     </div>
   );
 };
