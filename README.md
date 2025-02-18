@@ -37,4 +37,7 @@ Wondering how CashVault can really help your finances?
 ## Where can you start using CashVault?
 
 Well, CashVault is still in development and I'm hacking to bring it to life. It's coming soon. Get ready to be on the waitlist.
-While that is going on, follow the story on [Twitter](https://x.com/0xcashvault)
+While that is going on...
+
+* follow the story on [Twitter](https://x.com/0xcashvault)
+* you can have a feel of the [beta](https://cashvault.vercel.app/)
