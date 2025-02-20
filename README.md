@@ -1,66 +1,51 @@
-## Foundry
+# About CashVault
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Clearly, CashVault is an application for you to manage your money better and smarter. It's a native application on Scroll.
 
-Foundry consists of:
+Personal finance is an important aspect of human lives. Sadly, this is the area many people, particularly the young ones are having problems.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+3 questions for self-check:
 
-## Documentation
 
-https://book.getfoundry.sh/
 
-## Usage
 
-### Build
 
-```shell
-$ forge build
-```
 
-### Test
 
-```shell
-$ forge test
-```
 
-### Format
 
-```shell
-$ forge fmt
-```
+* do you clearly know how much you made and spent last month?
+* have you been consistent enough with your investment?
+* how deep do you know about managing your finances?
 
-### Gas Snapshots
+This is why I am building CashVault...
 
-```shell
-$ forge snapshot
-```
+This is a personal finance application for you to save, budget and invest. This is the application you need to get smarter and become richer onchain.
 
-### Anvil
+# How it Benefits You
+Wondering how CashVault can really help your finances?
 
-```shell
-$ anvil
-```
+## On Savings
 
-### Deploy
+* automated savings (e.g. $100 daily saving)
+* incremental saving towards a goal like buying your first home
+* 5% spend-and-save structure
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+## On Budgeting
 
-### Cast
+* setting spending limits on items
+* a pie chart to show where your money has been going
+* a pie chart to show how you have been receiving money
 
-```shell
-$ cast <subcommand>
-```
+## On Investing
 
-### Help
+* weekly DCA into crypto trades (only BTC, ETH, and SOL for start)
+* providing liquidity on protocols and getting rewarded (QuillFinance is top on the list)
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+## Where can you start using CashVault?
+
+Well, CashVault is still in development and I'm hacking to bring it to life. It's coming soon. Get ready to be on the waitlist.
+While that is going on:
+
+* follow the story on [Twitter](https://x.com/0xcashvault)
+* play with [beta](https://cashvault.vercel.app/)
