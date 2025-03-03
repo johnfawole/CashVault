@@ -1,18 +1,7 @@
-// the idea of the contract is that users should be able to:
-
-// * lockup funds for up to 12 months
-// * automatically save money
-// * save money on the go
-// to be deployed on Scroll
-
-
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.28;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-
 contract CashVault {
-    IERC20 public token;
-
     struct Lockup {
         uint256 amount;
         uint256 unlockTime;
@@ -34,31 +23,27 @@ contract CashVault {
     event AutomaticSaved(address indexed user, uint256 amount);
     event Withdrawn(address indexed user, uint256 amount);
 
-    constructor(IERC20 _token) {
-        token = _token;
-    }
-
-    function lockupFunds(uint256 amount, uint256 months) external {
+    function lockupFunds(uint256 months) external payable {
         require(months > 0 && months <= 12, "Lockup period must be between 1 and 12 months");
+        require(msg.value > 0, "Amount must be greater than 0");
 
         uint256 unlockTime = block.timestamp + (months * 30 days);
-        lockups[msg.sender] = Lockup(amount, unlockTime);
+        lockups[msg.sender] = Lockup(msg.value, unlockTime);
 
-        require(token.transferFrom(msg.sender, address(this), amount), "Token transfer failed");
-
-        emit LockedUp(msg.sender, amount, unlockTime);
+        emit LockedUp(msg.sender, msg.value, unlockTime);
     }
 
-    function saveOnTheGo(uint256 amount) external {
-        onTheGoSavings[msg.sender] += amount;
+    function saveOnTheGo() external payable {
+        require(msg.value > 0, "Amount must be greater than 0");
 
-        require(token.transferFrom(msg.sender, address(this), amount), "Token transfer failed");
+        onTheGoSavings[msg.sender] += msg.value;
 
-        emit SavedOnTheGo(msg.sender, amount);
+        emit SavedOnTheGo(msg.sender, msg.value);
     }
 
-    function handleAutomaticSaving(uint256 amount, uint256 interval) external {
+    function handleAutomaticSaving(uint256 amount, uint256 interval) external payable {
         require(interval == 1 days || interval == 7 days || interval == 30 days, "Invalid interval");
+        require(msg.value == amount, "Amount mismatch");
 
         AutomaticSaving storage saving = automaticSavings[msg.sender];
 
@@ -69,7 +54,6 @@ contract CashVault {
             require(block.timestamp >= saving.lastSaved + saving.interval, "Too early to save");
 
             saving.lastSaved = block.timestamp;
-            require(token.transferFrom(msg.sender, address(this), saving.amount), "Token transfer failed");
 
             emit AutomaticSaved(msg.sender, saving.amount);
         }
@@ -100,7 +84,7 @@ contract CashVault {
 
         require(totalAmount > 0, "No funds to withdraw");
 
-        require(token.transfer(msg.sender, totalAmount), "Token transfer failed");
+        payable(msg.sender).transfer(totalAmount);
 
         emit Withdrawn(msg.sender, totalAmount);
     }
