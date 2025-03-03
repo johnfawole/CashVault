@@ -11,6 +11,11 @@ const AutomaticSaving = () => {
     console.log(`Saving ${amount} ${frequency}`);
   };
 
+  const handleWithdraw = () => {
+    console.log("Withdrawing funds");
+    // Add logic to interact with the smart contract to withdraw funds
+  };
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -56,6 +61,10 @@ const AutomaticSaving = () => {
             Set Automatic Saving
           </button>
         </form>
+        {/* Withdraw Button */}
+        <button onClick={handleWithdraw} className={styles.withdrawButton}>
+          Withdraw Funds
+        </button>
       </div>
       <footer className={styles.footer}>
         All Rights Reserved
