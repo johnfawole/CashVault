@@ -82,8 +82,6 @@ const LandingPage = () => {
           </div>
         </div>
 
-
-
         <div className={styles.mainContent}>
           <button className={styles.ctaButton}>Budgeting</button>
         </div>
@@ -95,7 +93,9 @@ const LandingPage = () => {
           </div>
 
           <div className={styles.featureBox}>
-            <h3>Expense & Income Tracking</h3>
+            <Link href="/UploadBankStatement">
+              <h3>Expense & Income Tracking</h3>
+            </Link>
             <p>
               Sit back to examine how your money has been coming and going.
             </p>
