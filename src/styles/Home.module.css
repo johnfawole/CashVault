@@ -28,7 +28,7 @@
 }
 
 .header {
-  background-color: #1f5cc5;
+  background-color: #016b83;
   color: white;
   padding: 20px 0;
   text-align: center;
@@ -61,7 +61,7 @@
 }
 
 .footer {
-  background-color: #1f5cc5;
+  background-color: #016b83;
   color: white;
   padding: 20px;
   text-align: center;
@@ -121,4 +121,12 @@
   align-items: center;
   justify-content: flex-end;
   margin-top: 25px;
+}
+
+.bgLightGreen {
+  background-color: #f5f9f5;
+}
+
+.bgDarkTeal {
+  background-color: #016b83;
 }

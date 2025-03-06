@@ -1,29 +1,54 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import PyPDF2
+import re
+from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)
 
+def extract_current_date(text):
+    date_match = re.search(r"(January|February|March|April|May|June|July|August|September|October|November|December) (\d{1,2})(st|nd|rd|th)", text)
+    if date_match:
+        month, day, _ = date_match.groups()
+        return f"{datetime.now().year}-{datetime.strptime(month, '%B').month:02d}-{int(day):02d}"
+    return None
+
 def extract_transactions_from_pdf(file):
-    reader = PyPDF2.PdfReader(file)
-    transactions = []
+    try:
+        reader = PyPDF2.PdfReader(file)
+        transactions = []
 
-    for page_num in range(len(reader.pages)):
-        page = reader.pages[page_num]
-        text = page.extract_text()
-        lines = text.split('\n')
+        for page_num in range(len(reader.pages)):
+            page = reader.pages[page_num]
+            text = page.extract_text()
+            lines = text.split('\n')
 
-        for line in lines:
-            # Example parsing logic (you need to adjust this based on your PDF format)
-            if 'Transaction' in line:
-                parts = line.split()
-                date = parts[0]
-                description = ' '.join(parts[1:-1])
-                amount = float(parts[-1].replace('$', ''))
-                transactions.append({'date': date, 'description': description, 'amount': amount})
+            current_date = extract_current_date(text)
 
-    return transactions
+            for line in lines:
+                # Example parsing logic (you need to adjust this based on your PDF format)
+                if 'Transaction' in line:
+                    parts = line.split()
+                    time = parts[1]
+                    amount = float(parts[2].replace('$', ''))
+                    trans_type = parts[3]
+                    recipient = parts[4]
+                    description = ' '.join(parts[5:-1])
+                    balance = float(parts[-1].replace('$', ''))
+                    transactions.append({
+                        'date': current_date,
+                        'time': time,
+                        'amount': amount,
+                        'type': trans_type,
+                        'recipient': recipient,
+                        'description': description,
+                        'balance': balance
+                    })
+
+        return transactions
+    except Exception as e:
+        raise ValueError(f"Error processing PDF file: {str(e)}")
 
 def categorize_transactions(transactions):
     categories = {
@@ -65,6 +90,8 @@ def upload_file():
         }
 
         return jsonify(data)
+    except ValueError as ve:
+        return jsonify({'error': str(ve)}), 400
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

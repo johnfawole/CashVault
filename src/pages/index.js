@@ -8,99 +8,99 @@ const LandingPage = () => {
   return (
     <div>
       <Header />
-      <div className ={styles.landingSection}>
-        <div className = {styles.imageContainer}>
-          <img src = "/images/landing-image.png"
-               alt = "Landing Visual"
+      <div className={styles.landingSection}>
+        <div className={styles.imageContainer}>
+          <img src="/images/landing-image.png"
+               alt="Landing Visual"
                className={styles.landingImage}
           />
         </div>
         
-          <div className={styles.textContainer}>
-            <h1>Get Smarter with Money; Become Richer...</h1>
+        <div className={styles.textContainer}>
+          <h1>Get Smarter with Money; Become Richer...</h1>
         </div>
       </div>
-        <div className={styles.mainContent}>
-          <h1> Your companion in getting richer and living the life of your dreams</h1>
-          <h4>CashVault is your application for managing all things saving, budgeting, and investment</h4>
-          <button className={styles.ctaButton}>Sign Up Here</button>
-        </div>
+      
+      <div className={styles.mainContent}>
+        <h1>Your companion in getting richer and living the life of your dreams</h1>
+        <h4>CashVault is your application for managing all things saving, budgeting, and investment</h4>
+        <button className={styles.ctaButton}>Sign Up Here</button>
+      </div>
 
-        <div className={styles.mainContent}>
-          <button className={styles.ctaButton}>Savings</button>
-        </div>
+      <div className={`${styles.mainContent} ${styles.bgLightGreen}`}>
+        <button className={styles.ctaButton}>Savings</button>
 
-        <div className={styles.featureSection}>
+        <div className={`${styles.featureSection} ${styles.bgLightGreen}`}>
           <div className={styles.featureBox}>
-            <Link href = "/automatic-saving">
-            <h3>Automatic Saving</h3>
+            <Link href="/automatic-saving">
+              <h3>Automatic Saving</h3>
             </Link>
             <p>Put your savings on autopilot; set the frequency and your wallet will regularly deposit your savings on CashVault.</p>
           </div>
 
           <div className={styles.featureBox}>
-          <Link href = "/manual-saving">
-            <h3>Save Manually</h3>
-          </Link>
+            <Link href="/manual-saving">
+              <h3>Save Manually</h3>
+            </Link>
             <p>
               You don't like auto-saving? Then save on the go with the CashVault manual saving.
             </p>
           </div>
 
-          <div className ={styles.featureBox}>
-            <Link href = "/lockup">
-            <h3>Lock-up Funds</h3>
+          <div className={styles.featureBox}>
+            <Link href="/lockup">
+              <h3>Lock-up Funds</h3>
             </Link>
             <p>
-              Sometimes, it's better to just lock funds away if you know you want to be more diciplined with your finances.
+              Sometimes, it's better to just lock funds away if you know you want to be more disciplined with your finances.
             </p>
           </div>
         </div>
+      </div>
 
-        <div className={styles.mainContent}>
-          <button className={styles.ctaButton}>Investment</button>
+      <div className={`${styles.mainContent} ${styles.bgDarkTeal}`}>
+        <button className={styles.ctaButton}>Investment</button>
+
+        <div className={`${styles.featureSection} ${styles.bgDarkTeal}`}>
+        <div className={styles.featureBox}>
+          <h3>DCA Into Trades</h3>
+          <p>Set a schedule where you will always buy profitable crypto tokens and hold. Then sell when the prices immensely increased</p>
         </div>
 
-        <div className={styles.featureSection}>
-          <div className={styles.featureBox}>
-            <h3>DCA Into Trades</h3>
-            <p>Set a schedule where you will always buy profitable crypto tokens and hold. Then sell when the prices immensely increased</p>
-          </div>
-
-          <div className={styles.featureBox}>
-            <h3>Liquidity Provision</h3>
-            <p>
-              Become a liquidity provider in top Web3 protocols and get rewarded for it.
-            </p>
-          </div>
-
-          <div className ={styles.featureBox}>
-            <h3>CashVault Investment</h3>
-            <p>
-              You wannna invest, but not really sure how to? Lock your funds with CashVault to trade for you.
-            </p>
-          </div>
+        <div className={styles.featureBox}>
+          <h3>Liquidity Provision</h3>
+          <p>
+            Become a liquidity provider in top Web3 protocols and get rewarded for it.
+          </p>
         </div>
 
-        <div className={styles.mainContent}>
-          <button className={styles.ctaButton}>Budgeting</button>
+        <div className={styles.featureBox}>
+          <h3>CashVault Investment</h3>
+          <p>
+            You wanna invest, but not really sure how to? Lock your funds with CashVault to trade for you.
+          </p>
+        </div>
+      </div>
+      </div>
+
+      <div className={`${styles.mainContent} ${styles.bgLightGreen}`}>
+        <button className={styles.ctaButton}>Budgeting</button>
+        <div className={`${styles.featureSection} ${styles.bgLightGreen}`}>
+        <div className={styles.featureBox}>
+          <h3>Set Spending Limits</h3>
+          <p>Build healthier financial habits by gauging all your major spendings</p>
         </div>
 
-        <div className={styles.featureSection}>
-          <div className={styles.featureBox}>
-            <h3>Set Spending Limits</h3>
-            <p>Build healthier financial habits by gauging all your major spendings</p>
-          </div>
-
-          <div className={styles.featureBox}>
-            <Link href="/UploadBankStatement">
-              <h3>Expense & Income Tracking</h3>
-            </Link>
-            <p>
-              Sit back to examine how your money has been coming and going.
-            </p>
-          </div>
+        <div className={styles.featureBox}>
+          <Link href="/UploadBankStatement">
+            <h3>Expense & Income Tracking</h3>
+          </Link>
+          <p>
+            Sit back to examine how your money has been coming and going.
+          </p>
         </div>
+      </div>
+      </div>
       <Footer />
     </div>
   );
