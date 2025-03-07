@@ -1,7 +1,7 @@
 import formidable from "formidable";
 import { readFileSync } from "fs";
 
-// Tell Next.js not to parse the body as JSON
+// Next.js not to parse the body as JSON
 export const config = {
   api: {
     bodyParser: false,
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       });
     });
 
-    // Get the file from the files object
+    // Get the file
     const file = Array.isArray(files.bankStatement)
       ? files.bankStatement[0]
       : files.bankStatement;
