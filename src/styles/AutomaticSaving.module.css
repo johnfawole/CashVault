@@ -149,3 +149,43 @@
 .withdrawButton:hover {
   background: linear-gradient(90deg, #ff3333, #ff5050);
 }
+
+.uploadSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.uploadButton {
+  padding: 0.5rem 1rem;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.uploadButton:hover:not(:disabled) {
+  background-color: #0051b3;
+}
+
+.uploadButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.selectedFile {
+  margin: 1rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.chartContainer {
+  margin-top: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
