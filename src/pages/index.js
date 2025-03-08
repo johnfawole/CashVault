@@ -92,7 +92,7 @@ const LandingPage = () => {
         </div>
 
         <div className={styles.featureBox}>
-          <Link href="/UploadBankStatement">
+          <Link href="/PasteBankStatement">
             <h3>Expense & Income Tracking</h3>
           </Link>
           <p>
