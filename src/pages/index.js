@@ -2,6 +2,7 @@ import React from "react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styles from '../styles/Home.module.css';
+import imageStyles from '../styles/Images.module.css';
 import Link from 'next/link';
 
 const LandingPage = () => {
@@ -62,45 +63,41 @@ const LandingPage = () => {
         <button className={styles.ctaButton}>Investment</button>
 
         <div className={`${styles.featureSection} ${styles.bgDarkTeal}`}>
-        <div className={styles.featureBox}>
-          <h3>DCA Into Trades</h3>
-          <p>Set a schedule where you will always buy profitable crypto tokens and hold. Then sell when the prices immensely increased</p>
+          <img src="/images/DCA.jpg" alt="DCA Trades" className={imageStyles.featureImage} />
+          <div className={styles.featureBox}>
+            <h3>DCA Into Trades</h3>
+            <p>Set a schedule where you will always buy profitable crypto tokens and hold. Then sell when the prices immensely increased</p>
+          </div>
         </div>
-
-        <div className={styles.featureBox}>
-          <h3>Liquidity Provision</h3>
-          <p>
-            Become a liquidity provider in top Web3 protocols and get rewarded for it.
-          </p>
-        </div>
-
-        <div className={styles.featureBox}>
-          <h3>CashVault Investment</h3>
-          <p>
-            You wanna invest, but not really sure how to? Lock your funds with CashVault to trade for you.
-          </p>
-        </div>
-      </div>
       </div>
 
       <div className={`${styles.mainContent} ${styles.bgLightGreen}`}>
         <button className={styles.ctaButton}>Budgeting</button>
         <div className={`${styles.featureSection} ${styles.bgLightGreen}`}>
-        <div className={styles.featureBox}>
-          <h3>Set Spending Limits</h3>
-          <p>Build healthier financial habits by gauging all your major spendings</p>
+        <img src="/images/chart.png" alt="Chart" className={imageStyles.budgetingImage} />
+          <div className={styles.featureBox}>
+            <Link href="/PasteBankStatement">
+              <h3>Expense & Income Tracking</h3>
+            </Link>
+            <div className={imageStyles.budgetingContent}>
+              <p>
+                Sit back to examine how your money has been coming and going.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div className={styles.featureBox}>
-          <Link href="/PasteBankStatement">
-            <h3>Expense & Income Tracking</h3>
-          </Link>
-          <p>
-            Sit back to examine how your money has been coming and going.
-          </p>
+      <div className={`${styles.mainContent} ${styles.bgFineBlack}`}>
+        <div className={styles.scrollSection}>
+          <img src="/images/scroll.png" alt="Scroll" className={styles.scrollImage} />
+          <div>
+            <h1>Built on Scroll(currently in testnet)</h1>
+            <h2>CashVault is a personal finance application bringing the world to the Open Economy on Scroll</h2>
+          </div>
         </div>
       </div>
-      </div>
+
       <Footer />
     </div>
   );

@@ -65,17 +65,12 @@
   color: white;
   padding: 20px;
   text-align: center;
-
-  /* bottom: 0;
-  width: 100%; */
 }
 
 .feature img {
-  width: 19
-  0px; /* Make images larger */
+  width: 190px; /* Make images larger */
   height: 150px; /* Ensure they remain square */
   margin-bottom: 20px;
-
   border-radius: 12px;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -83,11 +78,11 @@
 
 .feature img:hover {
   transform: scale(1.1);
-  box-shadow: 0px 20px 95px rgba (0, 0, 0, 0.3);
+  box-shadow: 0px 20px 95px rgba(0, 0, 0, 0.3);
 }
 
 .featureSection {
-  display:flex;
+  display: flex;
   justify-content: space-around;
   align-items: flex-start;
   margin: 50px 0;
@@ -125,8 +120,66 @@
 
 .bgLightGreen {
   background-color: #f5f9f5;
+  width: 100%;
+}
+
+.bgFineBlack {
+  background-color: #091723;
+  width: 100%;
 }
 
 .bgDarkTeal {
   background-color: #016b83;
+}
+
+.scrollSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center horizontally */
+  padding: 20px;
+  text-align: center; /* Center text */
+}
+
+.scrollImage {
+  width: 20%; /* Adjust the width as needed */
+  height: auto;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.scrollSection h1 {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0;
+}
+
+.scrollSection h2 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 10px 0 0 0;
+}
+
+@media (max-width: 768px) {
+  .budgetingContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .budgetingImage {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .scrollSection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .scrollImage {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 }
