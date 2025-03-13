@@ -160,26 +160,21 @@
   margin: 10px 0 0 0;
 }
 
-@media (max-width: 768px) {
-  .budgetingContent {
-    flex-direction: column;
-    align-items: center;
-  }
+.connectButton {
+  padding: 15px 30px;
+  background-color: #c94d3e;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 20px;
+  align-self: flex-start;
+  margin-left: 1200px;
+}
 
-  .budgetingImage {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 20px;
-  }
-
-  .scrollSection {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .scrollImage {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
+.connectButton:hover {
+  background-color: #005bb5;
+  transform: scale(1.05);
 }

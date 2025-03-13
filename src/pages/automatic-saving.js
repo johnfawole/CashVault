@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/AutomaticSaving.module.css";
+import ConnectWallet from "../components/ConnectWallet";
 
 const AutomaticSaving = () => {
   // ✅ Define state variables outside handleSubmit
@@ -21,6 +22,7 @@ const AutomaticSaving = () => {
       <header className={styles.header}>
         <h1>Welcome to CashVault</h1>
       </header>
+      <ConnectWallet />
       <div className={styles.card}>
         <h2 className={styles.title}>Automatic Saving</h2>
         <form onSubmit={handleSubmit} className={styles.form}>

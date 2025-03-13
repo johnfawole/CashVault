@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/AutomaticSaving.module.css";
+import ConnectWallet from "../components/ConnectWallet";
 
 const ManualSaving = () => {
     const [amount, setAmount] = useState("");
@@ -20,6 +21,7 @@ const ManualSaving = () => {
             <header className={styles.header}>
                 <h1>Welcome to CashVault</h1>
             </header>
+            <ConnectWallet />
             <div className={styles.card}>
                 <h2 className={styles.title}>Manual Saving</h2>
                 <form onSubmit={handleSubmit} className={styles.form}>

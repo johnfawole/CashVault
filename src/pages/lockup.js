@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/AutomaticSaving.module.css";
+import ConnectWallet from "../components/ConnectWallet";
 
 const LockupFunds = () => {
   const [amount, setAmount] = useState("");
@@ -21,6 +22,7 @@ const LockupFunds = () => {
       <header className={styles.header}>
         <h1>Welcome to CashVault</h1>
       </header>
+      <ConnectWallet />
 
       <div className={styles.card}>
         <h2 className={styles.title}>Lockup Funds</h2>

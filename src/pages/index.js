@@ -4,11 +4,14 @@ import Footer from '../components/Footer';
 import styles from '../styles/Home.module.css';
 import imageStyles from '../styles/Images.module.css';
 import Link from 'next/link';
+import ConnectWallet from "../components/ConnectWallet";
+
 
 const LandingPage = () => {
   return (
     <div>
       <Header />
+      <ConnectWallet />
       <div className={styles.landingSection}>
         <div className={styles.imageContainer}>
           <img src="/images/landing-image.png"
