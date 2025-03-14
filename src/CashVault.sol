@@ -13,14 +13,23 @@ contract CashVault {
         uint256 lastSaved;
     }
 
+    struct DollarCostAveraging {
+        uint256 amount;
+        uint256 interval;
+        uint256 lastExecuted;
+    }
+
     mapping(address => Lockup) public lockups;
     mapping(address => AutomaticSaving) public automaticSavings;
+    mapping(address => DollarCostAveraging) public dollarCostAveragings;
     mapping(address => uint256) public onTheGoSavings;
 
     event LockedUp(address indexed user, uint256 amount, uint256 unlockTime);
     event SavedOnTheGo(address indexed user, uint256 amount);
     event AutomaticSavingSet(address indexed user, uint256 amount, uint256 interval);
     event AutomaticSaved(address indexed user, uint256 amount);
+    event DollarCostAveragingSet(address indexed user, uint256 amount, uint256 interval);
+    event DollarCostAveragingExecuted(address indexed user, uint256 amount);
     event Withdrawn(address indexed user, uint256 amount);
 
     function lockupFunds(uint256 months) external payable {
@@ -57,6 +66,34 @@ contract CashVault {
 
             emit AutomaticSaved(msg.sender, saving.amount);
         }
+    }
+
+    function setDollarCostAveraging(uint256 amount, uint256 interval) external payable {
+        require(interval == 7 days || interval == 30 days, "Invalid interval");
+        require(msg.value == amount, "Amount mismatch");
+
+        DollarCostAveraging storage dca = dollarCostAveragings[msg.sender];
+
+        if (dca.amount == 0) {
+            dollarCostAveragings[msg.sender] = DollarCostAveraging(amount, interval, block.timestamp);
+            emit DollarCostAveragingSet(msg.sender, amount, interval);
+        } else {
+            require(block.timestamp >= dca.lastExecuted + dca.interval, "Too early to execute DCA");
+
+            dca.lastExecuted = block.timestamp;
+
+            emit DollarCostAveragingExecuted(msg.sender, dca.amount);
+        }
+    }
+
+    function executeDollarCostAveraging() external {
+        DollarCostAveraging storage dca = dollarCostAveragings[msg.sender];
+        require(dca.amount > 0, "No DCA set");
+        require(block.timestamp >= dca.lastExecuted + dca.interval, "Too early to execute DCA");
+
+        dca.lastExecuted = block.timestamp;
+
+        emit DollarCostAveragingExecuted(msg.sender, dca.amount);
     }
 
     function withdrawLockedFunds() external {

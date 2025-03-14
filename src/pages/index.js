@@ -68,7 +68,9 @@ const LandingPage = () => {
         <div className={`${styles.featureSection} ${styles.bgDarkTeal}`}>
           <img src="/images/DCA.jpg" alt="DCA Trades" className={imageStyles.featureImage} />
           <div className={styles.featureBox}>
+          <Link href="/dca">
             <h3>DCA Into Trades</h3>
+          </Link>
             <p>Set a schedule where you will always buy profitable crypto tokens and hold. Then sell when the prices immensely increased</p>
           </div>
         </div>
