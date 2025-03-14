@@ -1,20 +1,113 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Web3 from "web3";
 import styles from "../styles/AutomaticSaving.module.css";
 import ConnectWallet from "../components/ConnectWallet";
 
 const AutomaticSaving = () => {
-  // ✅ Define state variables outside handleSubmit
   const [amount, setAmount] = useState("");
   const [frequency, setFrequency] = useState("daily");
+  const [web3, setWeb3] = useState(null);
+  const [account, setAccount] = useState(null);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    if (window.ethereum) {
+      const web3Instance = new Web3(window.ethereum);
+      setWeb3(web3Instance);
+      window.ethereum.request({ method: "eth_requestAccounts" }).then(accounts => {
+        setAccount(accounts[0]);
+      });
+    } else {
+      alert("Please install MetaMask to use this feature.");
+    }
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(`Saving ${amount} ${frequency}`);
+    if (!web3 || !account) {
+      alert("Please connect to MetaMask.");
+      return;
+    }
+
+    const contractAddress = "0x276a3411A3440b2A0A216dCD6d4e63f67b1c502e"; // Replace with your contract address
+    const contractABI = [
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "interval",
+            "type": "uint256"
+          }
+        ],
+        "name": "handleAutomaticSaving",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "withdrawLockedFunds",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      // Add other functions and events as needed
+    ];
+
+    const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+    const intervalMapping = {
+      daily: 1 * 24 * 60 * 60, // 1 day in seconds
+      weekly: 7 * 24 * 60 * 60, // 7 days in seconds
+      monthly: 30 * 24 * 60 * 60 // 30 days in seconds
+    };
+
+    try {
+      await contract.methods.handleAutomaticSaving(
+        web3.utils.toWei(amount, "ether"),
+        intervalMapping[frequency]
+      ).send({
+        from: account,
+        value: web3.utils.toWei(amount, "ether"),
+      });
+      console.log(`Set automatic saving of ${amount} ETH ${frequency}`);
+    } catch (error) {
+      console.error("Error setting automatic saving:", error);
+    }
   };
 
-  const handleWithdraw = () => {
-    console.log("Withdrawing funds");
-    // Add logic to interact with the smart contract to withdraw funds
+  const handleWithdraw = async () => {
+    if (!web3 || !account) {
+      alert("Please connect to MetaMask.");
+      return;
+    }
+
+    const contractAddress = "0x276a3411A3440b2A0A216dCD6d4e63f67b1c502e"; // Replace with your contract address
+    const contractABI = [
+      {
+        "inputs": [],
+        "name": "withdrawLockedFunds",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      // Add other functions and events as needed
+    ];
+
+    const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+    try {
+      await contract.methods.withdrawLockedFunds().send({
+        from: account,
+      });
+      console.log("Withdrew locked funds");
+    } catch (error) {
+      console.error("Error withdrawing funds:", error);
+    }
   };
 
   return (
