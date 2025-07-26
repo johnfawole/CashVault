@@ -7,14 +7,22 @@ app = Flask(__name__)
 CORS(app)
 
 def extract_transactions(text):
-    sent_names = re.findall(r'Send to ([A-Z\s-]+)', text, re.IGNORECASE)
-    sent_counts = Counter(sent_names)
+    # Pattern: Send to <Name> ₦<Amount>
+    sent_matches = re.findall(r'Send to ([A-Z\s\-]+)[^\d]*([\d,]+)', text, re.IGNORECASE)
+    received_matches = re.findall(r'Received from ([A-Z\s\-]+)[^\d]*([\d,]+)', text, re.IGNORECASE)
 
-    received_names = re.findall(r'Received from ([A-Z\s-]+)', text, re.IGNORECASE)
-    received_counts = Counter(received_names)
+    sent_totals = {}
+    for name, amount in sent_matches:
+        clean_amount = int(amount.replace(',', ''))
+        sent_totals[name.strip()] = sent_totals.get(name.strip(), 0) + clean_amount
 
-    sent_data = [{'name': name, 'value': count} for name, count in sent_counts.items()]
-    received_data = [{'name': name, 'value': count} for name, count in received_counts.items()]
+    received_totals = {}
+    for name, amount in received_matches:
+        clean_amount = int(amount.replace(',', ''))
+        received_totals[name.strip()] = received_totals.get(name.strip(), 0) + clean_amount
+
+    sent_data = [{'name': name, 'value': value} for name, value in sent_totals.items()]
+    received_data = [{'name': name, 'value': value} for name, value in received_totals.items()]
 
     return sent_data, received_data
 

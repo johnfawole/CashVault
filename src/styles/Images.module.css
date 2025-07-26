@@ -1,11 +1,11 @@
 .featureImage {
-  width: 50%; /* Adjust the width as needed */
+  width: 50%;
   height: auto;
   margin-top: 20px;
 }
 
 .budgetingImage {
-  width: 50%; /* Adjust the width as needed */
+  width: 50%; 
   height: auto;
   margin-left: 10px;
   display: flex;

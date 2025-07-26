@@ -61,15 +61,15 @@
 }
 
 .footer {
-  background-color: #016b83;
+  background-color: blanchedalmond;
   color: white;
   padding: 20px;
   text-align: center;
 }
 
 .feature img {
-  width: 190px; /* Make images larger */
-  height: 150px; /* Ensure they remain square */
+  width: 190px; 
+  height: 150px; 
   margin-bottom: 20px;
   border-radius: 12px;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.2);

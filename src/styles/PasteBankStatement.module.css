@@ -8,9 +8,9 @@
 }
 
 .card {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
+  background-color: cornsilk;
+  padding: 10px;
+  border-radius: 18px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -43,9 +43,10 @@
 
 .chartsContainer {
   display: flex;
-  justify-content: space-evenly; /* Moves both charts closer */
+  /* justify-content: space-evenly; Moves both charts closer */
   align-items: center;
   margin-top: 20px;
+  margin-left: 150px;
 }
 
 .chartBox {
@@ -54,6 +55,9 @@
   color: black; /* Set the color of the titles to black */
 }
 
-.chartBox:nth-child(2) {
-  margin-left: 50px; /* Moves income chart slightly left */
+.barChartContainer {
+  margin-top: 50px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
 }
